@@ -9,9 +9,9 @@ int k=0,l=0;
 int time_quantum2;
 int total,x,temp[30],counter=0;
 
-float avg_waiting_time1=0,avg_turnaround_time1=0;
+float avg_wt1=0,avg_tt1=0;
 
-void project()
+void ml_srot()
 {
 	printf("Enter Time Quantum:"); 
     scanf("%d",&time_quantum2);// user shall input the time quantum.
@@ -38,8 +38,8 @@ void project()
         { 
             x--; 
             printf("\nProcess[%d]\t%d\t%d\t%d",i+1,brtime_1[i],total-artime_1[i],total-artime_1[i]-brtime_1[i]);
-            avg_waiting_time1=avg_waiting_time1+total-artime_1[i]-brtime_1[i]; 
-            avg_turnaround_time1=avg_turnaround_time1+total-artime_1[i]; 
+            avg_wt1=avg_wt1+total-artime_1[i]-brtime_1[i]; 
+            avg_tt1=avg_tt1+total-artime_1[i]; 
             counter = 0; 
         } 
 if(i==j-1) 
@@ -55,10 +55,10 @@ else if(artime_1[i+1]<=total)
             i=0;
         }
     } 
-    avg_waiting_time1=avg_waiting_time1/j;
-    avg_turnaround_time1=avg_turnaround_time1/j;
-    printf("\nAverage Waiting Time:%f",avg_waiting_time1); 
-    printf("\nAverage Turnaround Time:%f\n",avg_turnaround_time1); 
+    avg_wt1=avg_wt1/j;
+    avg_tt1=avg_tt1/j;
+    printf("\nAverage Waiting Time:%f",avg_wt1); 
+    printf("\nAverage Turnaround Time:%f\n",avg_tt1); 
 }
 int main()
 {
@@ -104,6 +104,6 @@ if(pr[i]>=1&&pr[i]<=5)
 		}
 	}
 	
-	project();
+	ml_srot();
 	return 0;
 }
